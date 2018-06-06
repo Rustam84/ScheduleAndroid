@@ -28,7 +28,7 @@ public class Monday extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ScrollView view = (ScrollView) inflater.inflate(R.layout.tuesday, container, false);
+        ScrollView view = (ScrollView) inflater.inflate(R.layout.monday, container, false);
         ViewGroup viewGroup = (ViewGroup) view.getChildAt(0);
         List<ScheduleForGroup> scheduleForGroupList = Data.getList();
         for(ScheduleForGroup scheduleForGroup: scheduleForGroupList){

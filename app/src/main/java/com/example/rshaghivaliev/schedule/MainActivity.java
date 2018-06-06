@@ -1,12 +1,24 @@
 package com.example.rshaghivaliev.schedule;
 
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ContextThemeWrapper;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.rshaghivaliev.schedule.fragments.Friday;
 import com.example.rshaghivaliev.schedule.fragments.Monday;
@@ -19,10 +31,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public List<String> groups = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        groups.add("IA1503");
+        groups.add("IA1502");
+        groups.add("I1502");
+
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -35,8 +54,54 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.filter) {
+            AlertDialog.Builder customBuilder = new AlertDialog.Builder(this);
+            LinearLayout linearLayout = new LinearLayout(getApplicationContext());
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+            linearLayout.setPadding(40, 10, 0,0);
+
+            TextView textView = new TextView(getApplicationContext());
+            textView.setText("");
+            textView.setText("Выберите группу");
+            textView.setTextColor(Color.parseColor("#000000"));
+
+            Spinner spinnerGroup = new Spinner(this);
+            ArrayAdapter<String> spinnerGroupArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, groups);
+            spinnerGroup.setAdapter(spinnerGroupArrayAdapter);
+
+            linearLayout.addView(textView);
+            linearLayout.addView(spinnerGroup);
+            customBuilder.setView(linearLayout);
+            customBuilder.setTitle("ФИЛЬТРЫ");
+            customBuilder.setPositiveButton("ПРИМЕНИТЬ", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            customBuilder.setNegativeButton("ОТМЕНА", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+
+            AlertDialog dialog = customBuilder.create();
+            dialog.show();
+            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.parseColor("#052354"));
+            dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#052354"));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
