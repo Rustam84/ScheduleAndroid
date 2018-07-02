@@ -8,19 +8,18 @@ import java.util.List;
 
 public class Data {
     static List<ScheduleForGroup> list = Arrays.asList(
-            new ScheduleForGroup("Monday", "8:00-9:30", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Monday", "9:45-11:15", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Monday", "11:30-13:00", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Monday", "13:30-15:00", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Monday", "15:15-16:45", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Monday", "17:00-18:30", new CellForGroup("a", "b", "c")),
+            new ScheduleForGroup("Monday", "11:30-13:00", new CellForGroup("Calc. numeric(curs)", "G.Râbacova", "213a/4")),
+            new ScheduleForGroup("Monday", "13:30-15:00", new CellForGroup("Manag. proiectelor (curs)", "T.Bragaru", "213a/4")),
 
-            new ScheduleForGroup("Tuesday", "8:00-9:30", new CellForGroup("ООП(курс)", "Латул Георгий", "213a/4")),
-            new ScheduleForGroup("Tuesday", "9:45-11:15", new CellForGroup("Искус. интеллект(лаб)", "Григорча Виорел", "145b/4")),
-            new ScheduleForGroup("Tuesday", "11:30-13:00", new CellForGroup("Java(курс)", "Епифанова Ирина", "113/4")),
-            new ScheduleForGroup("Tuesday", "13:30-15:00", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Tuesday", "15:15-16:45", new CellForGroup("a", "b", "c")),
-            new ScheduleForGroup("Tuesday", "17:00-18:30", new CellForGroup("a", "b", "c"))
+            new ScheduleForGroup("Tuesday", "11:30-13:00", new CellForGroup("Sec.inf.(lab,par)", "II: O.Cerbu", "326/4")),
+            new ScheduleForGroup("Tuesday", "13:30-15:00", new CellForGroup("Limb.script.(lab)", "A.Gladei", "253/4")),
+            new ScheduleForGroup("Tuesday", "15:15-16:45", new CellForGroup("Sec.inf.(curs)", "O.Cerbu", "213/4")),
+
+            new ScheduleForGroup("Wednesday", "11:30-13:00", new CellForGroup("Etica (sem, imp)", "Gh.Căpățână", "401/4")),
+            new ScheduleForGroup("Wednesday", "13:30-15:00", new CellForGroup("Animație comp.(lab)", "Gh.Marin", "145a/4")),
+            new ScheduleForGroup("Wednesday", "15:15-16:45", new CellForGroup("Limb.script.(lab)", "I: A.Gladei", "237/4")),
+            new ScheduleForGroup("Wednesday", "15:15-16:45", new CellForGroup("Calcul numeric (lab)", "II: V.Pațiuc", "253/4")),
+            new ScheduleForGroup("Wednesday", "17:00-18:30", new CellForGroup("Sec.inf.(lab)", "I: O.Cerbu", "326/4"))
     );
 
     public static List<ScheduleForGroup> getList() {
